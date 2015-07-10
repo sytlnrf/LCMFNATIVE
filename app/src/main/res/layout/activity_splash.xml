@@ -5,6 +5,8 @@
     tools:context="com.sytlnrf.shengyitao.mofangnative.Splash">
 
     <ImageView
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/screen_xhdpi_portrait"/>
