@@ -4,4 +4,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_splash">Splash</string>
+    <string name="title_activity_splash_lcmf">SplashLcmf</string>
+
+    <string name="travel_name" >旅游日记</string>
 </resources>
