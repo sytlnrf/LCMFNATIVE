@@ -11,4 +11,5 @@
         android:src="@drawable/screen_xhdpi_portrait"
         android:scaleType="fitXY"
         />
+
 </LinearLayout>

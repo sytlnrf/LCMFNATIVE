@@ -34,7 +34,7 @@ public class SplashLcmf extends Activity {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         group = (ViewGroup)findViewById(R.id.viewGroup);
         //查找布局文件用LayoutInflater.inflate
-        LayoutInflater inflater =getLayoutInflater();
+        LayoutInflater inflater = getLayoutInflater();
         View view1 = inflater.inflate(R.layout.splash_1, null);
         View view2 = inflater.inflate(R.layout.splash_2, null);
         View view3 = inflater.inflate(R.layout.splash_3, null);
