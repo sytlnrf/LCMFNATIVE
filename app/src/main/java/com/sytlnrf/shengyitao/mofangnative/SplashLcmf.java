@@ -32,7 +32,7 @@ public class SplashLcmf extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash_lcmf);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
-
+        group = (ViewGroup)findViewById(R.id.viewGroup);
         //查找布局文件用LayoutInflater.inflate
         LayoutInflater inflater =getLayoutInflater();
         View view1 = inflater.inflate(R.layout.splash_1, null);
@@ -63,8 +63,9 @@ public class SplashLcmf extends Activity {
             }
 
             Log.d(TAG, "main line 66");
+
             try{
-                group.addView(imageViews[i]);
+                this.group.addView(imageViews[i]);
             }catch (Exception e){
                 Log.d(TAG,e.toString());
             }
@@ -141,6 +142,8 @@ public class SplashLcmf extends Activity {
         }
 
     }
+
+
 
 
 
