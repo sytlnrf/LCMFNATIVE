@@ -1,7 +1,6 @@
 package com.sytlnrf.shengyitao.mofangnative;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -64,7 +63,12 @@ public class SplashLcmf extends Activity {
             }
 
             Log.d(TAG, "main line 66");
-            group.addView(imageViews[i]);
+            try{
+                group.addView(imageViews[i]);
+            }catch (Exception e){
+                Log.d(TAG,e.toString());
+            }
+
             Log.d(TAG, "main line 68");
         }
 
