@@ -1,6 +1,8 @@
 package com.sytlnrf.shengyitao.mofangnative;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -25,14 +28,35 @@ public class SplashLcmf extends Activity {
     private ImageView[] imageViews;
     //包裹点点的LinearLayout
     private ViewGroup group;
+    private TextView enterMain;
+    private SharedPreferences MysharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_splash_lcmf);
+
+        MysharedPreferences = getSharedPreferences("start_count",MODE_PRIVATE);
+        int start_count = MysharedPreferences.getInt("start_count",0);
+        SharedPreferences.Editor myEditor = MysharedPreferences.edit();
+        myEditor.putInt("start_count", ++start_count);
+        myEditor.commit();
+        Log.d(TAG, String.valueOf(start_count));
+        if (start_count > 1){
+            EnterMain();
+        }
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         group = (ViewGroup)findViewById(R.id.viewGroup);
+        enterMain = (TextView)findViewById(R.id.enterMain);
+        enterMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EnterMain();
+            }
+        });
         //查找布局文件用LayoutInflater.inflate
         LayoutInflater inflater = getLayoutInflater();
         View view1 = inflater.inflate(R.layout.splash_1, null);
@@ -83,6 +107,12 @@ public class SplashLcmf extends Activity {
     }
 
 
+    //进入主页面
+    private void EnterMain(){
+        Intent mainIntent = new Intent(SplashLcmf.this, MainActivity.class);
+        SplashLcmf.this.startActivity(mainIntent);
+        SplashLcmf.this.finish();
+    }
     //数据适配器
     PagerAdapter mPagerAdapter = new PagerAdapter(){
 

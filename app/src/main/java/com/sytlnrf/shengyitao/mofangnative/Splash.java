@@ -17,7 +17,7 @@ public class Splash extends Activity {
 
             @Override
             public void run() {
-                Intent mainIntent = new Intent(Splash.this, MainActivity.class);
+                Intent mainIntent = new Intent(Splash.this, SplashLcmf.class);
                 Splash.this.startActivity(mainIntent);
                 Splash.this.finish();
             }
