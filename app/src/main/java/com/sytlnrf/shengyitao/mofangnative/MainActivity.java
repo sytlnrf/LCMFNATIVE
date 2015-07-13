@@ -15,16 +15,19 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends Activity {
     private static final String TAG = "MAIN_ACTIVITY";
+    private static final int ainiDuration = 150;
+    private static final int PAGE_NUM = 5;
     private ViewPager mPager;//页卡内容
     private List<View> listViews; // Tab页面列表
-    private ImageView cursor;// 动画图片
-    private TextView t1, t2 , t3;// 页卡头标
+//    private ImageView cursor;// 动画图片
+    private TextView t1, t2 , t3, t4, t5;// 页卡头标
     private int offset = 0;// 动画图片偏移量
     private int currIndex = 0;// 当前页卡编号
     private int bmpW;// 动画图片宽度
@@ -33,7 +36,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         InitTextView();
-        InitImageView();
+//        InitImageView();
         InitViewPager();
 
     }
@@ -42,9 +45,13 @@ public class MainActivity extends Activity {
         t1 = (TextView) findViewById(R.id.text1);
         t2 = (TextView) findViewById(R.id.text2);
         t3 = (TextView) findViewById(R.id.text3);
+        t4 = (TextView) findViewById(R.id.text4);
+        t5 = (TextView) findViewById(R.id.text5);
         t1.setOnClickListener(new MyOnClickListener(0));
         t2.setOnClickListener(new MyOnClickListener(1));
         t3.setOnClickListener(new MyOnClickListener(2));
+        t4.setOnClickListener(new MyOnClickListener(3));
+        t5.setOnClickListener(new MyOnClickListener(4));
     }
     public class MyOnClickListener implements View.OnClickListener {
         private int index = 0;
@@ -64,6 +71,8 @@ public class MainActivity extends Activity {
         listViews.add(mInflater.inflate(R.layout.tab_page_profit, null));
         listViews.add(mInflater.inflate(R.layout.tab_page_rank, null));
         listViews.add(mInflater.inflate(R.layout.tab_page_worth, null));
+        listViews.add(mInflater.inflate(R.layout.tab_page_interest,null));
+        listViews.add(mInflater.inflate(R.layout.tab_page_me,null));
         mPager.setAdapter(new MyPagerAdapter(listViews));
         mPager.setCurrentItem(0);
         mPager.addOnPageChangeListener(new MyOnPageChangeListener());
@@ -106,53 +115,74 @@ public class MainActivity extends Activity {
         }
     }
 
-    private void InitImageView() {
-        cursor = (ImageView) findViewById(R.id.cursor);
-//        cursor.setBackgroundColor(android.graphics.Color.parseColor("#000000"));
-        bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.a)
-        .getWidth();// 获取图片宽度
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-        int screenW = dm.widthPixels;// 获取分辨率宽度
-        offset = (screenW / 3 - bmpW) / 2;// 计算偏移量
-        Matrix matrix = new Matrix();
-        matrix.postTranslate(offset, 0);
-        cursor.setImageMatrix(matrix);// 设置动画初始位置
-    }
+//    private void InitImageView() {
+//        cursor = (ImageView) findViewById(R.id.cursor);
+////        cursor.setBackgroundColor(android.graphics.Color.parseColor("#000000"));
+//        bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.a)
+//        .getWidth();// 获取图片宽度
+//        DisplayMetrics dm = new DisplayMetrics();
+//        getWindowManager().getDefaultDisplay().getMetrics(dm);
+//        int screenW = dm.widthPixels;// 获取分辨率宽度
+//        offset = (screenW / PAGE_NUM - bmpW) / 2;// 计算偏移量
+//        Matrix matrix = new Matrix();
+//        matrix.postTranslate(offset, 0);
+//        cursor.setImageMatrix(matrix);// 设置动画初始位置
+//    }
 
     public class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
         int one = offset * 2 + bmpW;// 页卡1 -> 页卡2 偏移量
         int two = one * 2;// 页卡1 -> 页卡3 偏移量
+        int three = one * 3;
+        int four = one * 4;
         @Override
         public void onPageSelected(int arg0) {
-            Animation animation = null;
+//            Animation animation = null;
             switch (arg0) {
                 case 0:
-                    if (currIndex == 1) {
-                        animation = new TranslateAnimation(one, 0, 0, 0);
-                        } else if (currIndex == 2) {
-                        animation = new TranslateAnimation(two, 0, 0, 0);
-                        }
+//                    if (currIndex == 1) {
+//                        animation = new TranslateAnimation(one+offset, offset, 0, 0);
+//                        } else if (currIndex == 2) {
+//                        animation = new TranslateAnimation(two+offset, offset, 0, 0);
+//                        }
+//                    animation = new TranslateAnimation(one * currIndex + offset, offset, 0, 0);
                     break;
                 case 1:
-                    if (currIndex == 0) {
-                        animation = new TranslateAnimation(offset, one, 0, 0);
-                        } else if (currIndex == 2) {
-                        animation = new TranslateAnimation(two, one, 0, 0);
-                        }
+//                    if (currIndex == 0) {
+//                        animation = new TranslateAnimation(offset, one, 0, 0);
+//                        } else if (currIndex == 2) {
+//                        animation = new TranslateAnimation(two, one, 0, 0);
+//                        }
+//                    animation = new TranslateAnimation(one * currIndex + offset, one + offset, 0, 0 );
                     break;
                 case 2:
-                    if (currIndex == 0) {
-                        animation = new TranslateAnimation(offset, two, 0, 0);
-                        } else if (currIndex == 1) {
-                        animation = new TranslateAnimation(one, two, 0, 0);
-                        }
+//                    if (currIndex == 0) {
+//                        animation = new TranslateAnimation(offset, two, 0, 0);
+//                        } else if (currIndex == 1) {
+//                        animation = new TranslateAnimation(one, two, 0, 0);
+//                        }
+//                    animation = new TranslateAnimation(one * currIndex + offset, two + offset, 0, 0);
+                    break;
+                case 3:
+//                    if (currIndex == 0) {
+//                        animation = new TranslateAnimation(offset, two, 0, 0);
+//                    } else if (currIndex == 1) {
+//                        animation = new TranslateAnimation(one, two, 0, 0);
+//                    }
+//                    animation = new TranslateAnimation(one * currIndex + offset, three + offset, 0, 0);
+                    break;
+                case 4:
+//                    if (currIndex == 0) {
+//                        animation = new TranslateAnimation(offset, two, 0, 0);
+//                    } else if (currIndex == 1) {
+//                        animation = new TranslateAnimation(one, two, 0, 0);
+//                    }
+//                    animation = new TranslateAnimation(one * currIndex + offset, four + offset, 0, 0);
                     break;
                 }
             currIndex = arg0;
-            animation.setFillAfter(true);// True:图片停在动画结束位置
-            animation.setDuration(300);
-            cursor.startAnimation(animation);
+//            animation.setFillAfter(true);// True:图片停在动画结束位置
+//            animation.setDuration(ainiDuration);
+//            cursor.startAnimation(animation);
             }
         @Override
         public void onPageScrolled(int arg0, float arg1, int arg2) {

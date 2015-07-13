@@ -8,4 +8,10 @@
 
     <string name="travel_name" >旅游日记</string>
     <string name="jump_to_main" >跳过></string>
+
+    <string name="profit">profit</string>
+    <string name="rank">rank</string>
+    <string name="worth">worth</string>
+    <string name="interest">interest</string>
+    <string name="me">me</string>
 </resources>
