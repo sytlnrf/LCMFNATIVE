@@ -1,17 +1,13 @@
 package com.sytlnrf.shengyitao.mofangnative;
 
 import android.app.Activity;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
+import android.graphics.Color;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,10 +20,13 @@ public class MainActivity extends Activity {
     private static final String TAG = "MAIN_ACTIVITY";
     private static final int ainiDuration = 150;
     private static final int PAGE_NUM = 5;
+    private static final int TEXT_COLOR_BLUE = Color.parseColor("#3A5FCD");
+    private static final int TEXT_COLOR_BLACK = Color.parseColor("#000000");
     private ViewPager mPager;//页卡内容
     private List<View> listViews; // Tab页面列表
 //    private ImageView cursor;// 动画图片
-    private TextView t1, t2 , t3, t4, t5;// 页卡头标
+    private TextView t1, t2 , t3, t4, t5;//底部文字
+    private ImageView image1, image2, image3, image4, image5;//底部图片
     private int offset = 0;// 动画图片偏移量
     private int currIndex = 0;// 当前页卡编号
     private int bmpW;// 动画图片宽度
@@ -36,6 +35,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         InitTextView();
+        InitImageView();
 //        InitImageView();2
         InitViewPager();
 
@@ -53,6 +53,20 @@ public class MainActivity extends Activity {
         t4.setOnClickListener(new MyOnClickListener(3));
         t5.setOnClickListener(new MyOnClickListener(4));
     }
+    private void InitImageView(){
+        image1 = (ImageView) findViewById(R.id.profit_tab_image);
+        image2 = (ImageView) findViewById(R.id.rank_tab_image);
+        image3 = (ImageView) findViewById(R.id.vote_tab_image);
+        image4 = (ImageView) findViewById(R.id.collect_tab_image);
+        image5 = (ImageView) findViewById(R.id.me_tab_image);
+
+        image1.setOnClickListener(new MyOnClickListener(0));
+        image2.setOnClickListener(new MyOnClickListener(1));
+        image3.setOnClickListener(new MyOnClickListener(2));
+        image4.setOnClickListener(new MyOnClickListener(3));
+        image5.setOnClickListener(new MyOnClickListener(4));
+    }
+
     public class MyOnClickListener implements View.OnClickListener {
         private int index = 0;
         public MyOnClickListener(int i) {
@@ -61,7 +75,66 @@ public class MainActivity extends Activity {
         @Override
         public void onClick(View v) {
             mPager.setCurrentItem(index);
+
+
         }
+    }
+    public void ChangeTabProfileUnselected(int clickIndex){
+        switch (clickIndex){
+            case 0:
+                t1.setTextColor(TEXT_COLOR_BLACK);
+                image1.setImageResource(R.mipmap.profit);
+                break;
+            case 1:
+                t2.setTextColor(TEXT_COLOR_BLACK);
+                image2.setImageResource(R.mipmap.rank);
+                break;
+            case 2:
+                t3.setTextColor(TEXT_COLOR_BLACK);
+                image3.setImageResource(R.mipmap.vote_up);
+                break;
+            case 3:
+                t4.setTextColor(TEXT_COLOR_BLACK);
+                image4.setImageResource(R.mipmap.collect);
+                break;
+            case 4:
+                t5.setTextColor(TEXT_COLOR_BLACK);
+                image5.setImageResource(R.mipmap.me);
+                break;
+            default:
+                break;
+
+        }
+
+    }
+
+    public void ChangeTabProfileSelected(int clickIndex){
+        switch (clickIndex){
+            case 0:
+                t1.setTextColor(TEXT_COLOR_BLUE);
+                image1.setImageResource(R.mipmap.profit_ac);
+                break;
+            case 1:
+                t2.setTextColor(TEXT_COLOR_BLUE);
+                image2.setImageResource(R.mipmap.rank_ac);
+                break;
+            case 2:
+                t3.setTextColor(TEXT_COLOR_BLUE);
+                image3.setImageResource(R.mipmap.vote_up_ac);
+                break;
+            case 3:
+                t4.setTextColor(TEXT_COLOR_BLUE);
+                image4.setImageResource(R.mipmap.collect_ac);
+                break;
+            case 4:
+                t5.setTextColor(TEXT_COLOR_BLUE);
+                image5.setImageResource(R.mipmap.me_ac);
+                break;
+            default:
+                break;
+
+        }
+
     }
 
     private void InitViewPager() {
@@ -135,51 +208,13 @@ public class MainActivity extends Activity {
         int three = one * 3;
         int four = one * 4;
         @Override
-        public void onPageSelected(int arg0) {
+        public void onPageSelected(int selectedPage) {
 //            Animation animation = null;
-            switch (arg0) {
-                case 0:
-//                    if (currIndex == 1) {
-//                        animation = new TranslateAnimation(one+offset, offset, 0, 0);
-//                        } else if (currIndex == 2) {
-//                        animation = new TranslateAnimation(two+offset, offset, 0, 0);
-//                        }
-//                    animation = new TranslateAnimation(one * currIndex + offset, offset, 0, 0);
-                    break;
-                case 1:
-//                    if (currIndex == 0) {
-//                        animation = new TranslateAnimation(offset, one, 0, 0);
-//                        } else if (currIndex == 2) {
-//                        animation = new TranslateAnimation(two, one, 0, 0);
-//                        }
-//                    animation = new TranslateAnimation(one * currIndex + offset, one + offset, 0, 0 );
-                    break;
-                case 2:
-//                    if (currIndex == 0) {
-//                        animation = new TranslateAnimation(offset, two, 0, 0);
-//                        } else if (currIndex == 1) {
-//                        animation = new TranslateAnimation(one, two, 0, 0);
-//                        }
-//                    animation = new TranslateAnimation(one * currIndex + offset, two + offset, 0, 0);
-                    break;
-                case 3:
-//                    if (currIndex == 0) {
-//                        animation = new TranslateAnimation(offset, two, 0, 0);
-//                    } else if (currIndex == 1) {
-//                        animation = new TranslateAnimation(one, two, 0, 0);
-//                    }
-//                    animation = new TranslateAnimation(one * currIndex + offset, three + offset, 0, 0);
-                    break;
-                case 4:
-//                    if (currIndex == 0) {
-//                        animation = new TranslateAnimation(offset, two, 0, 0);
-//                    } else if (currIndex == 1) {
-//                        animation = new TranslateAnimation(one, two, 0, 0);
-//                    }
-//                    animation = new TranslateAnimation(one * currIndex + offset, four + offset, 0, 0);
-                    break;
-                }
-            currIndex = arg0;
+            if (selectedPage != currIndex) {
+                ChangeTabProfileSelected(selectedPage);
+                ChangeTabProfileUnselected(currIndex);
+            }
+            currIndex = selectedPage;
 //            animation.setFillAfter(true);// True:图片停在动画结束位置
 //            animation.setDuration(ainiDuration);
 //            cursor.startAnimation(animation);

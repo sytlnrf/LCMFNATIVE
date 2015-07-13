@@ -9,9 +9,9 @@
     <string name="travel_name" >旅游日记</string>
     <string name="jump_to_main" >跳过></string>
 
-    <string name="profit">profit</string>
-    <string name="rank">rank</string>
-    <string name="vote">vote</string>
-    <string name="collect">collect</string>
-    <string name="me">me</string>
+    <string name="profit">追踪收益</string>
+    <string name="rank">排行榜</string>
+    <string name="vote">值得投</string>
+    <string name="collect">关注</string>
+    <string name="me">我的</string>
 </resources>

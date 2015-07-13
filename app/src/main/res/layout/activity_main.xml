@@ -22,19 +22,21 @@
     <LinearLayout
         android:id="@+id/tab_images"
         android:layout_width="fill_parent"
-        android:layout_height="22dp"
+        android:layout_height="25dp"
         android:background="#ffffff">
         <ImageView
             android:id="@+id/profit_tab_image"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/tab_margin_top"
             android:layout_weight="1.0"
             android:layout_gravity="center"
-            android:src="@mipmap/profit"/>
+            android:src="@mipmap/profit_ac"/>
         <ImageView
             android:id="@+id/rank_tab_image"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/tab_margin_top"
             android:layout_weight="1.0"
             android:layout_gravity="center"
             android:src="@mipmap/rank"/>
@@ -42,6 +44,7 @@
             android:id="@+id/vote_tab_image"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/tab_margin_top"
             android:layout_weight="1.0"
             android:layout_gravity="center"
             android:src="@mipmap/vote_up"/>
@@ -49,6 +52,7 @@
             android:id="@+id/collect_tab_image"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/tab_margin_top"
             android:layout_weight="1.0"
             android:layout_gravity="center"
             android:src="@mipmap/collect"/>
@@ -56,6 +60,7 @@
             android:id="@+id/me_tab_image"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
+            android:layout_marginTop="@dimen/tab_margin_top"
             android:layout_weight="1.0"
             android:layout_gravity="center"
             android:src="@mipmap/me"/>
@@ -74,7 +79,8 @@
             android:layout_weight="1.0"
             android:gravity="center"
             android:text="@string/profit"
-            android:textColor="#000000"
+            android:textColor="#3A5FCD"
+            android:textSize="@dimen/tab_text_size"
             />
 
         <TextView
@@ -85,6 +91,7 @@
             android:gravity="center"
             android:text="@string/rank"
             android:textColor="#000000"
+            android:textSize="@dimen/tab_text_size"
             />
 
         <TextView
@@ -95,6 +102,7 @@
             android:gravity="center"
             android:text="@string/vote"
             android:textColor="#000000"
+            android:textSize="@dimen/tab_text_size"
              />
         <TextView
             android:id="@+id/collect_tab_text"
@@ -104,6 +112,7 @@
             android:gravity="center"
             android:text="@string/collect"
             android:textColor="#000000"
+            android:textSize="@dimen/tab_text_size"
             />
 
         <TextView
@@ -114,6 +123,7 @@
             android:gravity="center"
             android:text="@string/me"
             android:textColor="#000000"
+            android:textSize="@dimen/tab_text_size"
             />
     </LinearLayout>
 
