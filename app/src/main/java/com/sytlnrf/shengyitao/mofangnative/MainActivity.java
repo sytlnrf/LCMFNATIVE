@@ -61,13 +61,13 @@ public class MainActivity extends Activity {
         mPager = (ViewPager) findViewById(R.id.vPager);
         listViews = new ArrayList<View>();
         LayoutInflater mInflater = getLayoutInflater();
-        listViews.add(mInflater.inflate(R.layout.tab_page_worth, null));
-        listViews.add(mInflater.inflate(R.layout.tab_page_rank, null));
         listViews.add(mInflater.inflate(R.layout.tab_page_profit, null));
+        listViews.add(mInflater.inflate(R.layout.tab_page_rank, null));
+        listViews.add(mInflater.inflate(R.layout.tab_page_worth, null));
         mPager.setAdapter(new MyPagerAdapter(listViews));
         mPager.setCurrentItem(0);
         mPager.addOnPageChangeListener(new MyOnPageChangeListener());
-        }
+    }
 
     public class MyPagerAdapter extends PagerAdapter {
         public List<View> mListViews;
@@ -108,6 +108,7 @@ public class MainActivity extends Activity {
 
     private void InitImageView() {
         cursor = (ImageView) findViewById(R.id.cursor);
+//        cursor.setBackgroundColor(android.graphics.Color.parseColor("#000000"));
         bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.a)
         .getWidth();// 获取图片宽度
         DisplayMetrics dm = new DisplayMetrics();
