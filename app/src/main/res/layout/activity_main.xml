@@ -22,7 +22,7 @@
     <LinearLayout
         android:id="@+id/tab_images"
         android:layout_width="fill_parent"
-        android:layout_height="25dp"
+        android:layout_height="30dp"
         android:background="#ffffff">
         <ImageView
             android:id="@+id/profit_tab_image"

@@ -47,11 +47,11 @@ public class MainActivity extends Activity {
         t3 = (TextView) findViewById(R.id.vote_tab_text);
         t4 = (TextView) findViewById(R.id.collect_tab_text);
         t5 = (TextView) findViewById(R.id.me_tab_text);
-        t1.setOnClickListener(new MyOnClickListener(0));
-        t2.setOnClickListener(new MyOnClickListener(1));
-        t3.setOnClickListener(new MyOnClickListener(2));
-        t4.setOnClickListener(new MyOnClickListener(3));
-        t5.setOnClickListener(new MyOnClickListener(4));
+//        t1.setOnClickListener(new MyOnClickListener(0));
+//        t2.setOnClickListener(new MyOnClickListener(1));
+//        t3.setOnClickListener(new MyOnClickListener(2));
+//        t4.setOnClickListener(new MyOnClickListener(3));
+//        t5.setOnClickListener(new MyOnClickListener(4));
     }
     private void InitImageView(){
         image1 = (ImageView) findViewById(R.id.profit_tab_image);
