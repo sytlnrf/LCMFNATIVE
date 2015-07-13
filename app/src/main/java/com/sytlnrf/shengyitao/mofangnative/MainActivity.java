@@ -36,17 +36,17 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         InitTextView();
-//        InitImageView();
+//        InitImageView();2
         InitViewPager();
 
     }
 
     private void InitTextView() {
-        t1 = (TextView) findViewById(R.id.text1);
-        t2 = (TextView) findViewById(R.id.text2);
-        t3 = (TextView) findViewById(R.id.text3);
-        t4 = (TextView) findViewById(R.id.text4);
-        t5 = (TextView) findViewById(R.id.text5);
+        t1 = (TextView) findViewById(R.id.profit_tab_text);
+        t2 = (TextView) findViewById(R.id.rank_tab_text);
+        t3 = (TextView) findViewById(R.id.vote_tab_text);
+        t4 = (TextView) findViewById(R.id.collect_tab_text);
+        t5 = (TextView) findViewById(R.id.me_tab_text);
         t1.setOnClickListener(new MyOnClickListener(0));
         t2.setOnClickListener(new MyOnClickListener(1));
         t3.setOnClickListener(new MyOnClickListener(2));
