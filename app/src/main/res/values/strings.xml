@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">licaimofang</string>
+    <string name="app_name">理财魔方</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -14,4 +14,6 @@
     <string name="vote">值得投</string>
     <string name="collect">关注</string>
     <string name="me">我的</string>
+
+    <string name="search">搜索</string>
 </resources>
